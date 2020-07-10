@@ -54,18 +54,26 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a href="{{route('users.index')}}" class="nav-link">
-            <i class="nav-icon fa fa-users"></i>
-            <p>
-              Users
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
           <a href="{{route('categories.index')}}" class="nav-link">
             <i class="nav-icon fa fa-list"></i>
             <p>
               Categories
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('books.index')}}" class="nav-link">
+            <i class="nav-icon fa fa-book"></i>
+            <p>
+              Books
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('users.index')}}" class="nav-link">
+            <i class="nav-icon fa fa-users"></i>
+            <p>
+              Users
             </p>
           </a>
         </li>
