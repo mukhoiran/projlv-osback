@@ -46,37 +46,77 @@
           <div class="card-body">
             <div class="form-group">
               <label for="title">Title</label>
-              <input type="text" class="form-control" id="title" name="title" placeholder="Book title">
+              <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Book title" value="{{old('title')}}">
+              @error('title')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="cover">Cover</label>
-              <input type="file" class="form-control" id="cover" name="cover">
+              <input type="file" class="form-control @error('cover') is-invalid @enderror" id="cover" name="cover" value="{{old('cover')}}">
+              @error('cover')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="description">Description</label>
-              <textarea class="form-control" id="description" name="description" placeholder="Give a description about this book"></textarea>
+              <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" placeholder="Give a description about this book">{{old('description')}}</textarea>
+              @error('description')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="categories">Categories</label>
-              <select class="form-control" id="categories" name="categories[]" multiple>
+              <select class="form-control @error('categories') is-invalid @enderror" id="categories" name="categories[]" multiple>
 
               </select>
+              @error('categories')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="stock">Stock</label>
-              <input type="number" class="form-control" id="stock" name="stock" min=0 value=0>
+              <input type="number" class="form-control @error('stock') is-invalid @enderror" id="stock" name="stock" min=0 value="{{old('stock')}}">
+              @error('stock')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="author">Author</label>
-              <input type="text" class="form-control" id="author" name="author" placeholder="Book author">
+              <input type="text" class="form-control @error('author') is-invalid @enderror" id="author" name="author" placeholder="Book author" value="{{old('author')}}">
+              @error('author')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="publisher">Publisher</label>
-              <input type="text" class="form-control" id="publisher" name="publisher" placeholder="Book publisher">
+              <input type="text" class="form-control @error('publisher') is-invalid @enderror" id="publisher" name="publisher" placeholder="Book publisher" value="{{old('publisher')}}">
+              @error('publisher')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="price">Price</label>
-              <input type="number" class="form-control" id="price" name="price" placeholder="Book price">
+              <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="Book price" value="{{old('price')}}">
+              @error('price')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
           </div>
           <!-- /.card-body -->

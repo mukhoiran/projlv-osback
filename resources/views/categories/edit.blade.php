@@ -26,11 +26,21 @@
           <div class="card-body">
             <div class="form-group">
               <label for="name">Category Name</label>
-              <input type="text" class="form-control" id="name" name="name" value="{{$category->name}}">
+              <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{old('name') ? old('name') : $category->name}}">
+                @error('name')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
             </div>
             <div class="form-group">
               <label for="slug">Category Slug</label>
-              <input type="text" class="form-control" id="slug" name="slug" value="{{$category->slug}}">
+              <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{old('slug') ? old('slug') : $category->slug}}">
+                @error('slug')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
             </div>
             <div class="form-group">
               <label for="image">Category image</label>
@@ -42,8 +52,13 @@
               @else
                 No Image
               @endif
-              <input type="file" class="form-control" id="image" name="image">
+              <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image">
               <small class="text-muted">Kosongkan jika tidak ingin mengubah gambar</small>
+              @error('image')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+              @enderror
             </div>
           </div>
           <!-- /.card-body -->

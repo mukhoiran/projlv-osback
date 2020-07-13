@@ -25,11 +25,21 @@
           <div class="card-body">
             <div class="form-group">
               <label for="name">Category name</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="Category name">
+              <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Category name" value="{{ old('name') }}">
+              @error('name')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="image">Category image</label>
-              <input type="file" class="form-control" id="image" name="image">
+              <input type="file" class="form-control @error('name') is-invalid @enderror" id="image" name="image">
+              @error('image')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
           </div>
           <!-- /.card-body -->

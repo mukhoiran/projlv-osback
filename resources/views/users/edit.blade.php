@@ -26,30 +26,60 @@
           <div class="card-body">
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="Full name" value="{{$user->name}}">
+              <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Full name" value="{{old('name') ? old('name') : $user->name}}">
+              @error('name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="username">Username</label>
-              <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="{{$user->username}}">
+              <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="Username" value="{{old('username') ? old('username') : $user->username}}">
+              @error('username')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="">Status</label><br />
-              <input {{$user->status == "ACTIVE" ? "checked" : ""}} value="ACTIVE" type="radio" id="active" name="status"><label for="active"> Active</label><br />
-              <input {{$user->status == "INACTIVE" ? "checked" : ""}} value="INACTIVE" type="radio" id="inactive" name="status"><label for="inactive"> Inactive</label>
+              <input class="@error('status') is-invalid @enderror" {{$user->status == "ACTIVE" ? "checked" : ""}} value="ACTIVE" type="radio" id="active" name="status"><label for="active"> Active</label><br />
+              <input class="@error('status') is-invalid @enderror" {{$user->status == "INACTIVE" ? "checked" : ""}} value="INACTIVE" type="radio" id="inactive" name="status"><label for="inactive"> Inactive</label>
+              @error('status')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="">Roles</label><br />
-              <input {{in_array("ADMIN", json_decode($user->roles)) ? "checked" : ""}} type="checkbox" name="roles[]" id="ADMIN" value="ADMIN"> <label for="ADMIN">Administrator</label><br />
-              <input {{in_array("STAFF", json_decode($user->roles)) ? "checked" : ""}} type="checkbox" name="roles[]" id="STAFF" value="STAFF"> <label for="STAFF">Staff</label><br />
-              <input {{in_array("CUSTOMER", json_decode($user->roles)) ? "checked" : ""}} type="checkbox" name="roles[]" id="CUSTOMER" value="CUSTOMER"> <label for="CUSTOMER">Customer</label>
+              <input class="@error('roles') is-invalid @enderror" {{in_array("ADMIN", json_decode($user->roles)) ? "checked" : ""}} type="checkbox" name="roles[]" id="ADMIN" value="ADMIN"> <label for="ADMIN">Administrator</label><br />
+              <input class="@error('roles') is-invalid @enderror" {{in_array("STAFF", json_decode($user->roles)) ? "checked" : ""}} type="checkbox" name="roles[]" id="STAFF" value="STAFF"> <label for="STAFF">Staff</label><br />
+              <input class="@error('roles') is-invalid @enderror" {{in_array("CUSTOMER", json_decode($user->roles)) ? "checked" : ""}} type="checkbox" name="roles[]" id="CUSTOMER" value="CUSTOMER"> <label for="CUSTOMER">Customer</label>
+              @error('roles')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="phone">Phone number</label>
-              <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone number" value="{{$user->phone}}">
+              <input type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" placeholder="Phone number" value="{{old('phone') ? old('phone') : $user->phone}}">
+              @error('phone')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="address">Address</label>
-              <textarea class="form-control" id="address" name="address" placeholder="Address">{{$user->address}}</textarea>
+              <textarea class="form-control @error('address') is-invalid @enderror" id="address" name="address" placeholder="Address">{{old('address') ? old('address') : $user->address}}</textarea>
+              @error('address')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="avatar">Avatar image</label>
@@ -61,12 +91,22 @@
               @else
                 No avatar
               @endif
-              <input type="file" class="form-control" id="avatar" name="avatar">
+              <input type="file" class="form-control @error('avatar') is-invalid @enderror" id="avatar" name="avatar">
               <small class="text-muted">Kosongkan jika tidak ingin mengubah avatar</small>
+              @error('avatar')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="user@mail.com" value="{{$user->email}}">
+              <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="user@mail.com" value="{{old('email') ? old('email') : $user->email}}">
+              @error('email')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
             </div>
             {{-- <div class="form-group">
               <label for="password">Password</label>
